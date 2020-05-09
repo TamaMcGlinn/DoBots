@@ -1,0 +1,20 @@
+local arg = { ... }
+if(#arg ~= 1) then
+  error("Expected single integer argument on commandline for wireless channel")
+end
+
+modem = peripheral.wrap("back")
+channel=tonumber(arg[1])
+modem.open(channel) -- Open channel
+
+local running = true
+while running do
+  local event, key = os.pullEventRaw()
+  if event == "terminate" then
+    print ("good bye!")
+    modem.close(channel)
+    running = false
+  elseif event == "key" then
+    modem.transmit(channel,channel,key)
+  end
+end

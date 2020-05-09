@@ -48,9 +48,16 @@ function add_actions(actionsList, upper_action)
   end
 end
 
+local arg = { ... }
+if(#arg ~= 1) then
+  error("Expected single integer argument on commandline for wireless channel")
+end
 
-while true do
-  local event, key = os.pullEvent( "key" ) -- limit os.pullEvent to the 'key' event
+modem = peripheral.wrap("right")
+channel=tonumber(arg[1])
+modem.open(channel)
+
+function execute_command(key)
   for k,v in pairs(keys) do
     if key == v then
       print(k)
@@ -88,5 +95,21 @@ while true do
       end
       next_repeat = 0
     end
+  end -- if key == ...
+end -- function execute_command
+
+local running = true
+while running do
+  local event, key, senderChannel, 
+    replyChannel, message, senderDistance = os.pullEventRaw()
+
+  if event == "terminate" then
+    print ("good bye!")
+    modem.close(channel)
+    running = false
+  elseif(event == "modem_message") then
+    execute_command(message)
+  elseif(event == "key") then
+    execute_command(key)
   end
 end
