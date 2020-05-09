@@ -53,7 +53,11 @@ while true do
   local event, key = os.pullEvent( "key" ) -- limit os.pullEvent to the 'key' event
 
   current_action = actions[#actions]
-  if(is_numeric(key)) then
+
+  if(key == keys.s) then
+    turtle.select(next_repeat)
+    next_repeat = 0
+  elseif(is_numeric(key)) then
     next_repeat = next_repeat * 10 + numeric_value(key)
   elseif (key == keys.leftBracket) then
     table.insert(actions, { ['repeat'] = next_repeat, ['actions'] = {} })
