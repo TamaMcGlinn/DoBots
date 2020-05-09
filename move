@@ -6,9 +6,9 @@ local moves =
   [keys.numPad6] = turtle.turnRight,
   [keys.numPad1] = turtle.down,
   [keys.numPad7] = turtle.up,
-  [keys.numPadDivide] = turtle.dig,
+  [keys.numPad9] = turtle.dig,
   [keys.numPad3] = turtle.digDown,
-  [keys.numPad9] = turtle.digUp,
+  [keys.multiply] = turtle.digUp,
   [keys.numPadAdd] = turtle.place,
   [keys.numPadEnter] = turtle.placeDown,
   [keys.numPadSubtract] = turtle.placeUp
@@ -51,10 +51,15 @@ end
 
 while true do
   local event, key = os.pullEvent( "key" ) -- limit os.pullEvent to the 'key' event
+  for k,v in pairs(keys) do
+    if key == v then
+      print(k)
+    end
+  end
 
   current_action = actions[#actions]
 
-  if(key == keys.s) then
+  if(key == keys.numPad5) then
     turtle.select(next_repeat)
     next_repeat = 0
   elseif(is_numeric(key)) then
