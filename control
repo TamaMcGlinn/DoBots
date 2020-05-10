@@ -1,10 +1,16 @@
 local arg = { ... }
 if(#arg ~= 1) then
-  error("Expected single integer argument on commandline for wireless channel")
+  error("Expected single integer/string argument on commandline for wireless channel/turtle label")
 end
 
 modem = peripheral.wrap("back")
-channel=tonumber(arg[1])
+channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3 }
+mapped_channel = channel_mapping[arg[1]]
+if mapped_channel then
+  channel = mapped_channel
+else
+  channel=tonumber(arg[1])
+end
 modem.open(channel) -- Open channel
 
 local running = true

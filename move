@@ -48,13 +48,25 @@ function add_actions(actionsList, upper_action)
   end
 end
 
+modem = peripheral.wrap("right")
+
 local arg = { ... }
-if(#arg ~= 1) then
+if(#arg > 1) then
   error("Expected single integer argument on commandline for wireless channel")
 end
 
-modem = peripheral.wrap("right")
-channel=tonumber(arg[1])
+channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3 }
+if(#arg == 0) then
+  channel = channel_mapping[os.getComputerLabel()]
+else
+  mapped_channel = channel_mapping[arg[1]]
+  if mapped_channel then
+    channel = mapped_channel
+  else
+    channel=tonumber(arg[1])
+  end
+end
+
 modem.open(channel)
 
 function execute_command(key)
