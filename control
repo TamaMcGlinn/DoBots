@@ -4,7 +4,7 @@ if(#arg ~= 1) then
 end
 
 modem = peripheral.wrap("back")
-channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3 }
+channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3, ['gomez'] = 4 }
 mapped_channel = channel_mapping[arg[1]]
 if mapped_channel then
   channel = mapped_channel

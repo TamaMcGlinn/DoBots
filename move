@@ -55,7 +55,7 @@ if(#arg > 1) then
   error("Expected single integer argument on commandline for wireless channel")
 end
 
-channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3 }
+channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3, ['gomez'] = 4 }
 if(#arg == 0) then
   channel = channel_mapping[os.getComputerLabel()]
 else
