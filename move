@@ -11,7 +11,8 @@ local moves =
   [keys.multiply] = turtle.digUp,
   [keys.numPadAdd] = turtle.place,
   [keys.numPadEnter] = turtle.placeDown,
-  [keys.numPadSubtract] = turtle.placeUp
+  [keys.numPadSubtract] = turtle.placeUp,
+  [keys.numPad5] = turtle.select
 }
 
 local actions = { { ['repeat'] = 0, ['actions'] = {} } }
@@ -69,6 +70,12 @@ end
 
 modem.open(channel)
 
+function add_action_bound_to_number(action_table, action, number)
+  table.insert(action_table, function ()
+    action(number)
+  end)
+end
+
 function execute_command(key)
   for k,v in pairs(keys) do
     if key == v then
@@ -78,10 +85,7 @@ function execute_command(key)
 
   current_action = actions[#actions]
 
-  if(key == keys.numPad5) then
-    turtle.select(next_repeat)
-    next_repeat = 0
-  elseif(is_numeric(key)) then
+  if(is_numeric(key)) then
     next_repeat = next_repeat * 10 + numeric_value(key)
   elseif (key == keys.leftBracket) then
     table.insert(actions, { ['repeat'] = next_repeat, ['actions'] = {} })
@@ -99,11 +103,19 @@ function execute_command(key)
     local func = moves[key]
     if(func) then
       if #actions > 1 then
-        do_repeated( function()
-          table.insert(current_action['actions'], func)
-        end, next_repeat)
+        if key == keys.numPad5 then
+          add_action_bound_to_number(current_action['actions'], func, next_repeat)
+        else
+          do_repeated( function()
+            table.insert(current_action['actions'], func)
+          end, next_repeat)
+        end
       else
-        do_repeated( func, next_repeat )
+        if key == keys.numPad5 then
+          func (next_repeat)
+        else
+          do_repeated( func, next_repeat )
+        end
       end
       next_repeat = 0
     end
