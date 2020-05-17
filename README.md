@@ -4,6 +4,8 @@ The foundations of programming can be taught to children before they are able to
 
 This is a collection of lua code that helps me to teach programming to my children using turtles in the ComputerCraft Minecraft Mod. I stuck the children's drawings on the numpad keys that are used in `move`; if pressed the turtle will do these actions immediately, and the sticker icon makes clear what the action is.
 
+![picture of my numpad with icons stuck on the keys](demo_pictures/keyboard_stickers.png)
+
 ## First steps
 
 The first step in programming is learning to imagine and then describe what you want done, so practice first moving the turtle around and digging or placing blocks. Next, introduce the loop concept to move the turtle to a far place; typing a number and then pressing an action will do the action that many times. 
@@ -54,7 +56,7 @@ Issue `edit foo`, then press control-enter to save a file; this creates the dire
 
 ```
 rm -rf ~/.minecraft/saves/RobotCity/computer/0
-ln -s [path]/computercraft-programs/ ~/.minecraft/saves/RobotCity/computer/0
+ln -s [path]/computercraft-programs/programs ~/.minecraft/saves/RobotCity/computer/0
 ```
 
 Now issue `move`. Pressing the icons on your keypad will now work. To issue commands without covering the screen with this black terminal window, select the keyboard in your hand, bind it to the turtle with cntrl-rightclick, position yourself however you want to view the task at hand, and right-click to make the turtle listen to your keyboard input.
