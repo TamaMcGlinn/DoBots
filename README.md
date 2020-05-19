@@ -2,6 +2,8 @@
 
 The foundations of programming can be taught to children before they are able to read and write, by representing every concept they need with a symbol and tasking them to use it.
 
+![picture of child controlling computercraft turtle](demo_pictures/child_controlling_turtle.jpg)
+
 This is a collection of lua code that helps me to teach programming to my children using turtles in the ComputerCraft Minecraft Mod. I stuck the children's drawings on the numpad keys that are used in `move`; if pressed the turtle will do these actions immediately, and the sticker icon makes clear what the action is.
 
 ![picture of my numpad with icons stuck on the keys](demo_pictures/keyboard_stickers.png)
