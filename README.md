@@ -150,6 +150,6 @@ You can't see the program while it is being constructed. A good option would be 
 In fact, you may want to key in the program for the child, to avoid typo-toddler-frustration.
 
 It is not possible to read anything about the environment. For instance, it's not possible to have the robot "go down until the floor".
-I didn't find this to be a problem, because by the time your child is ready for this, he/she should probably be able to read, and hence is ready
+I didn't find this to be a problem, because by the time your child is ready for this, he / she should probably be able to read, and hence is ready
 for [AdaBots](http://github.com/TamaMcGlinn/AdaBots), which supports a real-world programming language.
 
