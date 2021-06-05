@@ -1,3 +1,13 @@
+function safeSelect(slot)
+  if slot >= 1 and slot <= 16 then
+    turtle.select(slot)
+  else
+    print("error: slot number " .. slot .. " invalid")
+    print("enter a slot number between 1-16")
+    print("before pressing Select")
+  end
+end
+
 local moves =
 {
   [keys.numPad8] = turtle.forward,
@@ -7,11 +17,12 @@ local moves =
   [keys.numPad1] = turtle.down,
   [keys.numPad7] = turtle.up,
   [keys.numPad9] = turtle.dig,
+  [keys.multiply] = turtle.digUp,
   [keys.numPad3] = turtle.digDown,
   [keys.numPadAdd] = turtle.place,
   [keys.numPadEnter] = turtle.placeDown,
   [keys.numPadSubtract] = turtle.placeUp,
-  [keys.numPad5] = turtle.select
+  [keys.numPad5] = safeSelect
 }
 
 local actions = { { ['repeat'] = 0, ['actions'] = {} } }
