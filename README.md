@@ -16,7 +16,7 @@ Note I don't have loop and end loop key stickers yet, for the 0 and . keys. If y
 
 These are the turtle controls, mapped to the numpad keys.
 You should consistently refer to the keys by their right names to make it easier to transition
-to text-based programming later with [AdaBots](github.com/TamaMcGlinn/AdaBots):
+to text-based programming later with [AdaBots](http://github.com/TamaMcGlinn/AdaBots):
 
 ```
 7       Up
@@ -145,5 +145,5 @@ In fact, you may want to key in the program for the child, to avoid typo-toddler
 
 It is not possible to read anything about the environment. For instance, it's not possible to have the robot "go down until the floor".
 I didn't find this to be a problem, because by the time your child is ready for this, he/she should probably be able to read, and hence is ready
-for [AdaBots](github.com/TamaMcGlinn/AdaBots), which supports a real-world programming language.
+for [AdaBots](http://github.com/TamaMcGlinn/AdaBots), which supports a real-world programming language.
 
