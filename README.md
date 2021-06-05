@@ -80,7 +80,7 @@ You may also with to enter these commands in-game to avoid distractions:
 /gamerule doDayNightCycle off
 /time set day
 /weather off
-/weather clear
+/weather clear 1000000
 ```
 
 With cheats enabled, you can type `/give [yourname] computercraft:turtle_normal` (with tab-completion).
