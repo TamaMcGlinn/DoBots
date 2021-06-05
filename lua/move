@@ -8,6 +8,10 @@ function safeSelect(slot)
   end
 end
 
+local begin_loop_key = keys.leftBracket
+local end_loop_key = keys.rightBracket
+local select_key = keys.numPad5
+
 local moves =
 {
   [keys.numPad8] = turtle.forward,
@@ -22,7 +26,7 @@ local moves =
   [keys.numPadAdd] = turtle.place,
   [keys.numPadEnter] = turtle.placeDown,
   [keys.numPadSubtract] = turtle.placeUp,
-  [keys.numPad5] = safeSelect
+  [select_key] = safeSelect
 }
 
 local actions = { { ['repeat'] = 0, ['actions'] = {} } }
@@ -104,10 +108,11 @@ function execute_command(key)
 
   if(is_numeric(key)) then
     next_repeat = next_repeat * 10 + numeric_value(key)
-  elseif (key == keys.leftBracket) then
+  elseif (key == end_loop_key) then
     table.insert(actions, { ['repeat'] = next_repeat, ['actions'] = {} })
     next_repeat = 0
-  elseif (key == keys.rightBracket) then
+  elseif (key == end_loop_key) then
+    print("endloop")
     if #actions > 1 then
       if #actions == 2 then
         do_repeated( function() do_actions(current_action['actions']) end, current_action['repeat'] )
@@ -120,7 +125,7 @@ function execute_command(key)
     local func = moves[key]
     if(func) then
       if #actions > 1 then
-        if key == keys.numPad5 then
+        if key == select_key then
           add_action_bound_to_number(current_action['actions'], func, next_repeat)
         else
           do_repeated( function()
@@ -128,7 +133,7 @@ function execute_command(key)
           end, next_repeat)
         end
       else
-        if key == keys.numPad5 then
+        if key == select_key then
           func (next_repeat)
         else
           do_repeated( func, next_repeat )

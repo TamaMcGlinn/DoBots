@@ -10,7 +10,8 @@ I stuck the children's drawings on the numpad keys that are used in `move`; if p
 
 ![picture of my numpad with icons stuck on the keys](demo_pictures/keyboard_stickers.png)
 
-Note I don't have loop and end loop key stickers yet, for the 0 and . keys. If you want to make a printable design, I would welcome a Pull Request.
+Note I don't have loop and end loop key stickers yet, for the [ and ] keys. Unfortunately, mapping these to numpad0 and numpad . doesn't work.
+If you want to make a printable design for these stickers, I would welcome a Pull Request.
 
 ## Controls
 
@@ -32,8 +33,8 @@ to text-based programming later with [AdaBots](http://github.com/TamaMcGlinn/Ada
 2       Back
 3       Dig Down
 [enter] Place Down
-0       Loop
-.       End Loop
+[       Loop
+]       End Loop
 ```
 
 ## Install instructions (minecraft)
