@@ -8,7 +8,6 @@ local moves =
   [keys.numPad7] = turtle.up,
   [keys.numPad9] = turtle.dig,
   [keys.numPad3] = turtle.digDown,
-  [keys.multiply] = turtle.digUp,
   [keys.numPadAdd] = turtle.place,
   [keys.numPadEnter] = turtle.placeDown,
   [keys.numPadSubtract] = turtle.placeUp,
@@ -60,7 +59,7 @@ if modem then
     error("Expected single integer argument on commandline for wireless channel")
   end
 
-  channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3, ['gomez'] = 4, ['morty'] = 5 }
+  channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3, ['gomez'] = 4, ['honey'] = 5 }
   if(#arg == 0) then
     channel = channel_mapping[os.getComputerLabel()]
   else
@@ -136,7 +135,9 @@ while running do
 
   if event == "terminate" then
     print ("good bye!")
-    modem.close(channel)
+    if modem then
+      modem.close(channel)
+    end -- if modem
     running = false
   elseif(event == "modem_message") then
     execute_command(message)
