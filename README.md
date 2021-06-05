@@ -80,7 +80,6 @@ You may also with to enter these commands in-game to avoid distractions:
 ```
 /gamerule doDayNightCycle off
 /time set day
-/weather off
 /weather clear 1000000
 ```
 
