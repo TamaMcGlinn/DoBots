@@ -73,7 +73,7 @@ It contains mods/, and you should put the cc-tweaked and plethora .jar files in 
 
 5) Give yourself a turtle in-game
 
-I recommend you create a survival mode world set to peaceful with cheats enabled. 
+I recommend you create a survival mode world *set to peaceful* with cheats enabled. 
 You may also with to enter these commands in-game to avoid distractions:
 
 ```
