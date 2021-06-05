@@ -83,9 +83,12 @@ You may also with to enter these commands in-game to avoid distractions:
 /weather clear 1000000
 ```
 
-With cheats enabled, you can type `/give [yourname] computercraft:turtle_normal` (with tab-completion).
+With cheats enabled, you can type `/give [yourname] computercraft:turtle` (with tab-completion).
+Then give yourself a diamond pickaxe in the same way, and [craft it](https://www.minecraft-crafting.net/)
+with the turtle to get a mining turtle.
+
 Place it and right click it to open an in-game terminal on the turtle. Issue this command to give
-the turtle a name, and also to create the turtle's program directory:
+the turtle a name, and also to create the turtle's program directory on your out-of-game filesystem:
 
 ```
 label set [name]
