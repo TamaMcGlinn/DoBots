@@ -1,7 +1,7 @@
 # DoBots - Learning to program before you can read
 
 The foundations of programming can be taught to children before they are able to read and write, by representing every concept they need with a symbol and tasking them to use it.
-This project should help you to teach children aged 3-6 how to plan sequential actions in the cubicle world of Minecraft.
+This project should help you to teach children from age 3 (until they can read) how to plan sequential actions in the cubical world of Minecraft.
 
 ![picture of child controlling computercraft turtle](demo_pictures/child_controlling_turtle.jpg)
 
@@ -41,18 +41,18 @@ to text-based programming later with [AdaBots](http://github.com/TamaMcGlinn/Ada
 
 On the minecraft side of things, you need the following one-time setup:
 
-1) Choose latest versions of the following that work together
+### 1) Choose latest versions of the following that work together
 
 Currently that is Minecraft and
 [Minecraft Forge 1.12.2](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.12.2.html)
 with [CC:Tweaked 1.89.1](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked/files)
 and [Plethora 1.12.2](https://plethora.madefor.cc/).
 
-2) Install [minecraft](https://minecraft.net/)
+### 2) Install [minecraft](https://minecraft.net/)
 
 You will need to purchase the game.
 
-3) Install [minecraft forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
+### 3) Install [minecraft forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
 
 Download the installer for your operating system and minecraft version. Run it:
 
@@ -62,7 +62,7 @@ Download the installer for your operating system and minecraft version. Run it:
 Select the forge game version in the launcher and press play, letting it load until you
 are presented with the main game menu.
 
-4) Install [CC:Tweaked](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked) and [Plethora](https://plethora.madefor.cc/)
+### 4) Install [CC:Tweaked](https://www.curseforge.com/minecraft/mc-mods/cc-tweaked) and [Plethora](https://plethora.madefor.cc/)
 
 The minecraft directory is 
 
@@ -72,7 +72,7 @@ The minecraft directory is
 
 It contains mods/, and you should put the cc-tweaked and plethora .jar files in there and restart.
 
-5) Give yourself a turtle in-game
+### 5) Give yourself a turtle in-game
 
 I recommend you create a survival mode world *set to peaceful* with cheats enabled. 
 You may also with to enter these commands in-game to avoid distractions:
@@ -95,7 +95,7 @@ the turtle a name, and also to create the turtle's program directory on your out
 label set [name]
 ```
 
-6) Copy (or symlink) lua/move onto the turtle
+### 6) Copy (or symlink) lua/move onto the turtle
 
 In the minecraft directory, under saves/[save_name]/computercraft/computer/ there is a numbered
 directory for every turtle in computercraft. You can copy lua/move into that directory:
@@ -107,7 +107,7 @@ cp lua/move ~/.minecraft/saves/DoBots_MC1_12_2/computer/0/
 and then issue `move` on the turtle's terminal. It will start reponding to keypad presses,
 but only while the terminal is blocking your screen.
 
-7) Connect [a keyboard](https://plethora.madefor.cc/items/keyboard.html) for remote control
+### 7) Connect [a keyboard](https://plethora.madefor.cc/items/keyboard.html) for remote control
 
 This is where the need for Plethora arises. Give yourself a keyboard and right-click to start 
 using it. Now you can issue commands without blocking your screen with the terminal.
@@ -118,7 +118,7 @@ using it. Now you can issue commands without blocking your screen with the termi
 
 Press shift-rightclick when looking at the turtle to connect it.
 
-8) Optional: configure computercraft to not require fuel
+### 8) Optional: configure computercraft to not require fuel
 
 Initially, only turning the turtle will work. That's because all other commands require energy.
 You could refuel the turtle manually, but it is rather tedious as there's no numpad button currently
@@ -130,6 +130,8 @@ Instead, you can edit the computercraft config file in `config/computercraft.cfg
     # Set whether Turtles require fuel to move
     B:need_fuel=false
 ```
+
+## Start teaching!
 
 ### First steps
 
