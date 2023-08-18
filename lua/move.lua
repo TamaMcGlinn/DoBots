@@ -63,34 +63,6 @@ function add_actions(actionsList, upper_action)
   end
 end
 
-modem = peripheral.wrap("right")
-if not modem then
-  modem = peripheral.wrap("left")
-end
-
-if modem then
-  local arg = { ... }
-  if(#arg > 1) then
-    error("Expected single integer argument on commandline for wireless channel")
-  end
-
-  channel_mapping = { ['baldrick'] = 1, ['darling'] = 2, ['farmer'] = 3, ['gomez'] = 4, ['honey'] = 5 }
-  if(#arg == 0) then
-    channel = channel_mapping[os.getComputerLabel()]
-  else
-    mapped_channel = channel_mapping[arg[1]]
-    if mapped_channel then
-      channel = mapped_channel
-    else
-      channel=tonumber(arg[1])
-    end
-  end
-
-  if channel then
-    modem.open(channel)
-  end
-end
-
 function add_action_bound_to_number(action_table, action, number)
   table.insert(action_table, function ()
     action(number)
@@ -108,7 +80,7 @@ function execute_command(key)
 
   if(is_numeric(key)) then
     next_repeat = next_repeat * 10 + numeric_value(key)
-  elseif (key == end_loop_key) then
+  elseif (key == begin_loop_key) then
     table.insert(actions, { ['repeat'] = next_repeat, ['actions'] = {} })
     next_repeat = 0
   elseif (key == end_loop_key) then
@@ -146,17 +118,12 @@ end -- function execute_command
 
 local running = true
 while running do
-  local event, key, senderChannel, 
+  local event, key, senderChannel,
     replyChannel, message, senderDistance = os.pullEventRaw()
 
   if event == "terminate" then
     print ("good bye!")
-    if modem then
-      modem.close(channel)
-    end -- if modem
     running = false
-  elseif(event == "modem_message") then
-    execute_command(message)
   elseif(event == "key") then
     execute_command(key)
   end
